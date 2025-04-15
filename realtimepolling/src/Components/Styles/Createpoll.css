@@ -1,25 +1,10 @@
-/* .maincont{
-     background-color:#0C0E29;
-    background-size: cover;
-    height: 100vh;
-    width: 100vw; 
-  
-   
-} */
+
 .form-container{
    margin: 50px;
    margin-left: 70px;
    margin-right: 70px;
    color:black;
-   /* background-color:#8F87F1; */
-   /* background-color:#E9A5F1; */
-
-   /*this is correct bg color  */
    background-color:#F3CFF8;
-   /* background-color:#E4C8FF;
-   background: linear-gradient(to right, #D3A4FF, #A0E7E5); */
-    /* background-color: #F4F8D3; */
-   
    border-radius: 50px;
    padding: 10px;
 
@@ -29,6 +14,7 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
+    color:black
   }
   .form-group {
     display: flex;
@@ -52,7 +38,7 @@
     border:none;
     border-bottom: 2px solid #333;
     background-color: transparent;
-    text-align: left;
+    text-align: center;
     width:50%;
     outline: none;
     padding-left: 20px;;
@@ -65,7 +51,7 @@
     border:none;
     border-bottom: 2px solid #333;
     background-color: transparent;
-    text-align: left;
+    text-align: center;
     width:100%;
     outline: none;
     padding-left: 20px;;

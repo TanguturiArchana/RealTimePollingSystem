@@ -1,46 +1,3 @@
-// import React from 'react';
-// import { Table, Button } from 'react-bootstrap';
-// import { FaEye,FaPlus } from 'react-icons/fa';
-// import './Styles/UserTabel.css';
-// import { useNavigate } from 'react-router-dom'; 
-// function UserCustomTable({ polls = [] }) {
-//    const navigate = useNavigate();
-//   return (
-//     <div className="dashboard-container">
-//       <div className="polls-box">
-//         <h5>My Voted Polls</h5>
-//         <Table bordered responsive className="polls-table">
-//           <thead>
-//             <tr>
-//               <th>Title</th>
-//               <th>Status</th>
-//               <th>Votes</th>
-//               <th>View</th>
-
-//             </tr>
-//           </thead>
-//           <tbody>
-//             {polls.map((poll) => (
-//               <tr key={poll._id}>
-//                 <td>{poll.title}</td>
-//                 <td>{poll.status}</td>
-//                 <td>{poll.totalVotes}</td>
-//                 <td><FaEye className="action-icon view" /></td>
-//               </tr>
-//             ))}
-//           </tbody>
-//         </Table>
-
-//         <Button className="create-button" onClick={() => navigate('/vote')}>
-//           <FaPlus style={{ marginRight: '5px' }} />
-//           Vote New Poll
-//         </Button>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default UserCustomTable;
 import React, { useState } from 'react';
 import { Table, Button, Modal } from 'react-bootstrap';
 import { FaEye, FaPlus } from 'react-icons/fa';
@@ -98,7 +55,7 @@ function UserCustomTable({ polls = [] }) {
         </Button>
       </div>
 
-      {/* Modal for Pie Chart */}
+  
       <Modal show={showModal} onHide={handleClose} size="lg" centered>
         <Modal.Header closeButton>
           <Modal.Title>{selectedPoll?.title}</Modal.Title>

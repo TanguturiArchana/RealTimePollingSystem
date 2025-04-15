@@ -29,7 +29,7 @@ function Login() {
                 localStorage.setItem('token', data.token);
                 // login();
                 alert("Login successful!");
-                navigate('/dashboard'); // Change to your protected route
+                navigate('/dashboard'); 
             } else {
                 alert(data.message || "Login failed");
             }

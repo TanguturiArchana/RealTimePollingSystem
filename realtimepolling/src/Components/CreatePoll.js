@@ -13,12 +13,8 @@ function CreatePoll() {
     option4: ''
   });
   const [duration, setDuration] = useState('');
-
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Collect the options
     const selectedOptions = Object.values(options).filter(opt => opt);
 
     if (selectedOptions.length < 2) {
@@ -29,13 +25,13 @@ function CreatePoll() {
     const pollData = {
       title: pollTitle,
       options: selectedOptions,
-      duration: duration, // format: HH:mm
+      duration: duration, 
     };
-    const token = localStorage.getItem('token'); // Assuming token is saved after login
-    console.log('Token from localStorage:', token);  // Log token
+    const token = localStorage.getItem('token'); 
+    console.log('Token from localStorage:', token);  
 
     try {
-      const response = await fetch('http://localhost:5000/api/polls/create', { // Adjusted backend port
+      const response = await fetch('http://localhost:5000/api/polls/create', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -46,7 +42,7 @@ function CreatePoll() {
 
       const data = await response.json();
       if (response.status === 201) {
-        setModalOpen(true); // Show the success message
+        setModalOpen(true); 
       } else {
         alert(data.message || 'Error creating poll');
       }
@@ -58,7 +54,6 @@ function CreatePoll() {
 
   const handleCloseModal = () => {
     setModalOpen(false);
-    // Reset form data when closing the modal
     setPollTitle('');
     setOptions({
       option1: '',
@@ -76,7 +71,7 @@ function CreatePoll() {
         <h1>Poll Creation Form</h1>
         <form onSubmit={handleSubmit}>
           <div className="form-title">
-            <label htmlFor="pollTitle">Poll Title</label>
+            <label htmlFor="pollTitle" style={{color:"blue"}}>Poll Title</label>
             <input
               type="text"
               id="pollTitle"
@@ -88,7 +83,7 @@ function CreatePoll() {
           </div>
 
           <div className="form-group">
-            <label>Options</label>
+            <label  style={{color:"blue"}}>Options</label>
             <div className="form-options">
               {Object.keys(options).map((key, index) => (
                 <div key={index}>
@@ -105,7 +100,7 @@ function CreatePoll() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="duration">Set Poll Duration</label>
+            <label htmlFor="duration"  style={{color:"blue"}}>Set Poll Duration</label>
             <input
               type="time"
               id="duration"

@@ -9,7 +9,6 @@ function Dashboard() {
   const [totalPolls, setTotalPolls] = useState(0);
   const [totalPolledVotes, settotalPolledVotes] = useState([]);
   
-  // Fetch polls when the component mounts
   useEffect(() => {
     const fetchPolls = async () => {
       try {
@@ -20,8 +19,8 @@ function Dashboard() {
           },
         });
         const data = await response.json();
-        setCreatedPolls(data.createdPolls);  // Polls created by the current user
-        setVotedPolls(data.votedPolls);      // Polls voted by the current user
+        setCreatedPolls(data.createdPolls);  
+        setVotedPolls(data.votedPolls);    
         setTotalPolls(data.totalPolls);
         settotalPolledVotes(data.totalPolledVoted);
 

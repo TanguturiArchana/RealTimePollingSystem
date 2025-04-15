@@ -1,62 +1,10 @@
-// import React from 'react';
-// import { Table, Button } from 'react-bootstrap';
-// import { FaEye, FaPlus, FaPoll, FaVoteYea } from 'react-icons/fa';
-// import './Styles/UserTabel.css';
-// import { useNavigate } from 'react-router-dom'; 
-// function UserTable({ createdPolls = [], totalVotes = 0, totalPolledVotes = 0 }) {
-//    const navigate = useNavigate();
-//   return (
-//     <div className="dashboard-container">
-//       {/* Summary Box */}
-//       <div className="summary-box">
-//         <h5>👋 Welcome!!!, user</h5>
-//         <p className="summary-stats">
-//           <FaPoll className="summary-icon" /> Total Polls: <strong>{totalVotes}</strong> &nbsp;|&nbsp;
-//           <FaVoteYea className="summary-icon" /> Total Votes Polled: <strong>{totalPolledVotes}</strong> &nbsp;|&nbsp;
-//         </p>
-//       </div>
-
-//       {/* My Created Polls */}
-//       <div className="polls-box">
-//         <h5>My Created Polls</h5>
-//         <Table bordered responsive className="polls-table">
-//           <thead>
-//             <tr>
-//               <th>Title</th>
-//               <th>Status</th>
-//               <th>Votes</th>
-//               <th>View</th>
-//             </tr>
-//           </thead>
-//           <tbody>
-//             {createdPolls.map((poll) => (
-//               <tr key={poll._id}>
-//                 <td>{poll.title}</td>
-//                 <td>{poll.status}</td>
-//                 <td>{poll.totalVotes}</td>
-//                 <td><FaEye className="action-icon view" /></td>
-//               </tr>
-//             ))}
-//           </tbody>
-//         </Table>
-
-//         <Button className="create-button" onClick={() => navigate('/create')}>
-//           <FaPlus style={{ marginRight: '5px' }} />
-//           Create New Poll
-//         </Button>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default UserTable;
 import React, { useState } from 'react';
 import { Table, Button, Modal } from 'react-bootstrap';
 import { FaEye, FaPlus, FaPoll, FaVoteYea } from 'react-icons/fa';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import './Styles/UserTabel.css';
 import { useNavigate } from 'react-router-dom';
-
+import { MdWavingHand } from 'react-icons/md';
 const COLORS = ["#8884d8", "#82ca9d", "#ffc658", "#ff8042", "#8dd1e1"];
 
 function UserTable({ createdPolls = [], totalVotes = 0, totalPolledVotes = 0 }) {
@@ -76,16 +24,13 @@ function UserTable({ createdPolls = [], totalVotes = 0, totalPolledVotes = 0 }) 
 
   return (
     <div className="dashboard-container">
-      {/* Summary Box */}
       <div className="summary-box">
-        <h5>👋 Welcome!!!, user</h5>
+        <h5>  <MdWavingHand style={{ color: 'orange', fontSize: '24px',margin:'2px' }}/>Welcome!!!, user</h5>
         <p className="summary-stats">
           <FaPoll className="summary-icon" /> Total Polls: <strong>{totalVotes}</strong> &nbsp;|&nbsp;
           <FaVoteYea className="summary-icon" /> Total Votes Polled: <strong>{totalPolledVotes}</strong> &nbsp;|&nbsp;
         </p>
       </div>
-
-      {/* My Created Polls */}
       <div className="polls-box">
         <h5>My Created Polls</h5>
         <Table bordered responsive className="polls-table">
@@ -120,8 +65,6 @@ function UserTable({ createdPolls = [], totalVotes = 0, totalPolledVotes = 0 }) 
           Create New Poll
         </Button>
       </div>
-
-      {/* Modal for Pie Chart */}
       <Modal show={showModal} onHide={handleClose} size="lg" centered>
         <Modal.Header closeButton>
           <Modal.Title>{selectedPoll?.title}</Modal.Title>

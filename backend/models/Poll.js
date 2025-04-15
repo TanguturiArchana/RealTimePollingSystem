@@ -28,7 +28,7 @@ const pollSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
       },
-      option: String  // Change to store a single selected option as a string
+      option: String  
     }
   ]
 });

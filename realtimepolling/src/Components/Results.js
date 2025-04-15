@@ -8,7 +8,6 @@ const COLORS = ["#8884d8", "#82ca9d", "#ffc658", "#ff8042", "#8dd1e1"];
 function Results() {
   const [polls, setPolls] = useState([]);
 
-  // Fetch all polls from the backend
   useEffect(() => {
     fetchPolls();
   }, []);
@@ -37,7 +36,7 @@ function Results() {
         ) : (
           polls.map((poll) => (
             <div key={poll._id} className="poll-result">
-              <h3>{poll.title}</h3>
+              <h3  style={{color:"blue",fontSize:'24px'}}>{poll.title}</h3>
               {poll.createdBy?.email && (
              <p className="creator-email">Created by: {poll.createdBy.email}</p>
               )}

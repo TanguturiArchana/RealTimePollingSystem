@@ -1,12 +1,12 @@
-// controllers/pollController.js
+
 const mongoose = require('mongoose');
 
 const Poll = require('../models/Poll');
-const User = require('../models/User');  // Ensure the User model is imported
+const User = require('../models/User');  
 
 exports.createPoll = async (req, res) => {
   const { title, options, duration } = req.body;
-  const userId = req.user._id;  // userId from authenticated user, passed via token
+  const userId = req.user._id; 
 
   if (!title || !options || options.length < 2) {
     return res.status(400).json({ message: "Poll must have a title and at least two options." });
@@ -14,23 +14,19 @@ exports.createPoll = async (req, res) => {
 
   try {
     const pollOptions = options.map(opt => ({ text: opt }));
-
-    // Parse the duration to calculate the poll end time
-    const endTime = new Date(Date.now() + parseDuration(duration)); // This ensures we store a Date object for duration
+    const endTime = new Date(Date.now() + parseDuration(duration)); 
 
     const poll = new Poll({
       title,
       options: pollOptions,
       duration: endTime,
-      createdBy: userId, // Directly assign userId
+      createdBy: userId, 
     });
 
     await poll.save();
-
-    // Update user's created polls
-    const user = await User.findById(userId);  // Ensure this line is correct
+    const user = await User.findById(userId);  
     if (user) {
-      user.createdPolls.push(poll._id); // Ensure user's createdPolls is updated
+      user.createdPolls.push(poll._id); 
       await user.save();
     }
 
@@ -42,13 +38,11 @@ exports.createPoll = async (req, res) => {
 };
 
 exports.votePoll = async (req, res) => {
-  const { pollId, optionId } = req.body; // Expecting a single optionId
+  const { pollId, optionId } = req.body; 
   const userId = req.user._id;
 
-  console.log('pollId:', pollId);  // Debugging
-  console.log('optionId:', optionId);  // Debugging
-
-  // Check if both pollId and optionId are provided
+  console.log('pollId:', pollId);
+  console.log('optionId:', optionId); 
   if (!pollId || !optionId) {
     return res.status(400).json({ message: 'Poll ID and Option ID are required' });
   }
@@ -60,31 +54,26 @@ exports.votePoll = async (req, res) => {
     }
 
     const hasVoted = poll.votedBy.some(vote => {
-      const voteUserId = vote.user?._id || vote.user; // handle populated vs raw ID
+      const voteUserId = vote.user?._id || vote.user; 
       return voteUserId?.toString() === userId.toString();
     });
     if (hasVoted) {
       return res.status(400).json({ message: "You have already voted on this poll." });
     }
 
-    // Log the available options in the poll for debugging
     console.log('Poll options:', poll.options);
 
-    // Ensure optionId is valid
     const option = poll.options.find(o => o._id.toString() === new mongoose.Types.ObjectId(optionId).toString());
     if (!option) {
       return res.status(404).json({ message: `Option with ID ${optionId} not found` });
     }
-
-    // Increment the vote count for the selected option
     option.votes += 1;
-    // Add the user's vote to the votedBy array (store the selected option's ID)
     poll.votedBy.push({
       user: userId,
-      option: optionId, // Store the selected option's ID as a string
+      option: optionId,
     });
 
-    await poll.save(); // Save the updated poll
+    await poll.save();
 
     res.status(200).json({ message: "Vote recorded", poll });
   } catch (err) {
@@ -93,17 +82,15 @@ exports.votePoll = async (req, res) => {
   }
 };
 
-// Helper function to parse duration like "01:00" to ms
+
 function parseDuration(timeStr) {
   const [hours, minutes] = timeStr.split(':').map(Number);
   return ((hours * 60) + minutes) * 60 * 1000;
 }
 exports.getPolls = async (req, res) => {
   try {
-    const userId = req.user._id; // Get the logged-in user's ID
+    const userId = req.user._id; 
     const now = new Date();
-
-    // Polls created by the logged-in user
     const createdPollsRaw = await Poll.find({ createdBy: userId }).populate('createdBy', 'email');
     const createdPolls = createdPollsRaw.map((poll) => {
       const totalVotes = poll.options.reduce((sum, opt) => sum + (opt.votes || 0), 0);
@@ -113,8 +100,6 @@ exports.getPolls = async (req, res) => {
         status: new Date(poll.duration) > now ? "Active" : "Expired",
       };
     });
-
-    // Polls where the user has voted
     const votedPollsRaw = await Poll.find({ 'votedBy.user': userId }).populate('createdBy', 'email');
     const votedPolls = votedPollsRaw.map((poll) => {
       const totalVotes = poll.options.reduce((sum, opt) => sum + (opt.votes || 0), 0);
@@ -124,7 +109,7 @@ exports.getPolls = async (req, res) => {
         status: new Date(poll.duration) > now ? "Active" : "Expired",
       };
     });
-    //total votes
+
     const polls = await Poll.find();
     let totalPolledVoted = 0;
     polls.forEach(poll => {
@@ -142,7 +127,7 @@ exports.getPolls = async (req, res) => {
 exports.getallPolls = async (req, res) => {
   try {
     const polls = await Poll.find().populate('createdBy', 'email');
-    res.status(200).json({ polls }); // ✅ wrap in an object
+    res.status(200).json({ polls });
   } catch (err) {
     console.error('Error fetching polls:', err);
     res.status(500).json({ message: 'Server error' });
