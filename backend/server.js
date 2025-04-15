@@ -14,6 +14,10 @@ app.use('/api/auth', authRoutes);
 
 const pollRoutes = require('./routes/pollRoutes');
 app.use('/api/polls', pollRoutes);
+app.use(cors({
+  origin: 'https://realtimepollingsystem-frontend.onrender.com',
+  credentials: true
+}));
 
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
