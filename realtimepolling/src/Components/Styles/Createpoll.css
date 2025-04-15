@@ -1,0 +1,112 @@
+/* .maincont{
+     background-color:#0C0E29;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw; 
+  
+   
+} */
+.form-container{
+   margin: 50px;
+   margin-left: 70px;
+   margin-right: 70px;
+   color:black;
+   /* background-color:#8F87F1; */
+   /* background-color:#E9A5F1; */
+
+   /*this is correct bg color  */
+   background-color:#F3CFF8;
+   /* background-color:#E4C8FF;
+   background: linear-gradient(to right, #D3A4FF, #A0E7E5); */
+    /* background-color: #F4F8D3; */
+   
+   border-radius: 50px;
+   padding: 10px;
+
+}
+.form-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+    padding: 5px;
+  }
+  
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+    margin-right: 10px;
+  }
+    
+.form-title input{
+    display: flex;
+    flex-direction:column;
+    border:none;
+    border-bottom: 2px solid #333;
+    background-color: transparent;
+    text-align: left;
+    width:50%;
+    outline: none;
+    padding-left: 20px;;
+    
+
+}
+.form-options input{
+  display: flex;
+    flex-direction:column;
+    border:none;
+    border-bottom: 2px solid #333;
+    background-color: transparent;
+    text-align: left;
+    width:100%;
+    outline: none;
+    padding-left: 20px;;
+
+}
+.form-group{
+    margin:5px;
+    padding:5px;
+}
+.but{
+    color: #FFFFFF;
+    background-color: #E80C88;
+    width:150px;
+    height: 50px;
+    border-radius: 20px;
+}
+.but:hover {
+    transform: scale(1.05);
+    background-color: #c40a75;
+    transition: 0.2s ease-in-out;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+  .search-button{
+    background-color: #8F87F1;
+    color:white;
+    border-radius: 20px;
+    padding:10px;
+    margin-left: 10px;
+    border-width: 0px;
+
+
+}
+  .search-button:hover {
+    background-color:#8F87F1 !important;
+    transform: scale(1.05) !important;
+    transition: 0.2s ease-in-out  !important;
+  }
+  .search-input:hover{
+    border-color: #8F87F1 !important;
+    box-shadow: none !important;
+    margin-right:10px
+  }

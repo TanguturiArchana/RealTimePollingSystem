@@ -1,0 +1,67 @@
+
+.maincont{
+    /* background-color:#0C0E29; */
+    /* background-size: cover;
+    height: 100vh;
+    width: 100vw; */
+    text-align: center;
+   
+}
+.mainheading{
+    color:#E80C88;
+    padding-top: 25px;
+}
+.input input{
+    /* color:white; */
+    border: 2px solid #E80C88;
+    background-color: transparent;
+    text-align: center;
+    padding: 10px;
+    margin-right: 10px;
+   
+}
+input[type="checkbox"] {
+    margin:0.5px
+
+}
+    
+.textleft{
+    /* color:white; */
+    text-align: left;
+    color:black;
+    padding-top:1px;
+    padding-left: 4px;
+    margin-right: 10px;
+}
+.textright{
+    /* color:white; */
+    padding:2px;
+    color:black;
+    text-align: right;
+    margin-left: 40px;
+}
+.inblw{
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+}
+.innerinputcont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:10px;
+    
+}
+.innerformcont{
+    display: flex;
+    flex-direction: row;
+    margin:10px;
+}
+
+.login{
+    color: #FFFFFF;
+    background-color:  #8F87F1;
+    width:150px;
+    height: 30px;
+    border-radius: 20px;
+}
