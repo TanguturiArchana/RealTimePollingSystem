@@ -14,7 +14,7 @@ function Results() {
 
   const fetchPolls = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/polls/all");
+      const response = await fetch("https://realtimepollingsystem-1.onrender.com/api/polls/all");
       const data = await response.json();
       if (data.polls) {
         setPolls(data.polls);
