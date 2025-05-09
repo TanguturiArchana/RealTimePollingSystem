@@ -25,7 +25,7 @@ function Results() {
   const fetchPolls = async () => {
     try {
       const token = localStorage.getItem("authToken");
-      const response = await fetch("http://localhost:5000/api/polls/public/all", {
+      const response = await fetch("https://realtimepollingsystembackend.onrender.com/api/polls/public/all", {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
