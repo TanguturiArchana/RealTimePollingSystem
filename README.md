@@ -1,7 +1,6 @@
-### Real Time Polling Sytem
+# Real Time Polling Sytem
  An interactive full-stack web application that allows users to create polls, vote in real-time, and view instant results.
  
-### Table of Contents
 ## Technologies Used
 MongoDB
 Express.js
@@ -14,15 +13,15 @@ View results immediately
 User authentication with JWT
 Responsive design for mobile & desktop
 
-### Used Libraries and Dependencies:
-## Frontend:
+## Used Libraries and Dependencies:
+### Frontend:
 axios – for making HTTP requests
 bootstrap & react-bootstrap – for responsive UI styling
 react-router-dom – for routing and navigation
 recharts – for rendering charts and graphs
 react-icons – for icons
 
-## Backend:
+### Backend:
 express – to create API routes
 mongoose – to connect and interact with MongoDB
 dotenv – for managing environment variables
@@ -32,32 +31,32 @@ bcryptjs – for hashing passwords
 
 
  
-###  Installation & Setup
-## Frontend
-# Create the React app
+##  Installation & Setup
+### Frontend
+- Create the React app
 npx create-react-app realtimepollingsystem
-# Navigate to the client folder
+- Navigate to the client folder
 cd realtimepollingsystem
-# Install required packages
+- Install required packages
 npm install axios bootstrap react react-bootstrap react-dom react-icons react-router-dom react-scripts recharts
-# Start the development server
+- Start the development server
 npm start
 
-## Backend
-# Initialize the backend
+### Backend
+- Initialize the backend
 npm init -y
-# Install required packages
+- Install required packages
 npm install express mongoose dotenv cors jsonwebtoken bcryptjs
-# Start the server
+- Start the server
 node server.js
 
-## Environment Variables
+### Environment Variables
 Create a .env file in your backend root and include:
 MONGO_URI=<your-mongodb-connection-string>
 JWT_SECRET=<your-secret-key>
 PORT=5000
 
-## Running the Application Locally
+### Running the Application Locally
 Frontend runs on: http://localhost:3000
 Backend runs on: http://localhost:5000
 
