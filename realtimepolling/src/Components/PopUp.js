@@ -3,7 +3,7 @@ import { Modal, Button } from "react-bootstrap";
 
 function PopUp({ show, handleClose,text }) {
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal show={show} onHide={handleClose} >
         <Modal.Header closeButton>
             <Modal.Title>Poll Created!</Modal.Title>
         </Modal.Header>

@@ -1,12 +1,17 @@
+.maincont{
+  justify-items: center;
 
+}
 .form-container{
    margin: 50px;
    margin-left: 70px;
    margin-right: 70px;
    color:black;
    background-color:#F3CFF8;
+   width: 1000px;
    border-radius: 50px;
    padding: 10px;
+   justify-items: center;
 
 }
 .form-title {
@@ -19,6 +24,7 @@
   .form-group {
     display: flex;
     flex-direction: column;
+    
     align-items: center;
     margin: 10px 0;
     padding: 5px;
@@ -39,7 +45,7 @@
     border-bottom: 2px solid #333;
     background-color: transparent;
     text-align: center;
-    width:50%;
+    width:100%;
     outline: none;
     padding-left: 20px;;
     
@@ -76,6 +82,14 @@
   body {
     font-family: 'Poppins', sans-serif;
   }
+  .inside{
+    background-color: #FFFFFF;
+    margin: 20px;
+    align-items: center;
+    border-radius: 20px;
+    width: 600px;
+    padding: 10px;
+  }
   .search-button{
     background-color: #8F87F1;
     color:white;
@@ -96,3 +110,7 @@
     box-shadow: none !important;
     margin-right:10px
   }
+
+
+
+  

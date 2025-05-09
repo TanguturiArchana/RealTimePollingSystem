@@ -29,7 +29,7 @@ function Signup() {
             const data = await res.json();
 
             if (res.ok) {
-                localStorage.setItem('token', data.token); // optional: store token
+                localStorage.setItem('token', data.token); 
                 alert("Signup successful!");
                 navigate('/login');
             } else {

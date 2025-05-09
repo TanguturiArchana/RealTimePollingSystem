@@ -11,7 +11,7 @@ function NavbarPage() {
 
   
   return (
-    <Navbar style={{ backgroundColor: '#d3a4ff' }} expand="lg">
+    <Navbar style={{ backgroundColor: '#d3a4ff' ,width:"100%"}} expand="lg">
       <Container>
         <Navbar.Brand as={NavLink} to="/" style={{ fontWeight: 'bold' }}>
           <FaPoll style={{ marginRight: '5px' }} />

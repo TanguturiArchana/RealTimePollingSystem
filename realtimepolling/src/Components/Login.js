@@ -5,14 +5,12 @@ import { FaInstagram, FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import '../Components/Styles/Login.css';
-// import { useAuth } from './context/AuthContext';
+
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    // const { login } = useAuth();
-
     const handleLogin = async () => {
         try {
             const res = await fetch("http://localhost:5000/api/auth/login", {
@@ -27,7 +25,6 @@ function Login() {
 
             if (res.ok) {
                 localStorage.setItem('token', data.token);
-                // login();
                 alert("Login successful!");
                 navigate('/dashboard'); 
             } else {

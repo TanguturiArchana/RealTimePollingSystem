@@ -1,3 +1,7 @@
 .main{
     text-align: center;
+    justify-items: center;
+}
+.result-container{
+    justify-items: center;
 }
