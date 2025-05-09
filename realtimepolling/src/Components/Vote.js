@@ -21,7 +21,7 @@ function Vote() {
   const fetchPolls = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:5000/api/polls/all", {
+      const response = await fetch("https://realtimepollingsystembackend.onrender.com/api/polls/all", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -75,7 +75,7 @@ function Vote() {
 
   try {
     const token = localStorage.getItem("token");
-    const response = await fetch("http://localhost:5000/api/polls/vote", {
+    const response = await fetch("https://realtimepollingsystembackend.onrender.com/api/polls/vote", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
