@@ -74,7 +74,7 @@ To deploy the Real-Time Polling System on Render.com, follow these steps:
      - Root Directory: The folder containing your backend code (e.g., server).
      - Build Command:
        - npm install
-       - Start Command:
+     - Start Command:
        - node server.js
     - Add the following environment variables under Environment:
       - MONGO_URI – your MongoDB connection string
