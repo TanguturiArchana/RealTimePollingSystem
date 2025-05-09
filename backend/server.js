@@ -8,7 +8,6 @@ dotenv.config();
 const app = express();
 app.use(cors({
   origin: 'https://realtimepollingsystembackend.onrender.com',
-  credentials: true
 }));
 app.use(express.json());
 
